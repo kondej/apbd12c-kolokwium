@@ -17,7 +17,7 @@ public class DbService : IDbService
         _connectionString = configuration.GetConnectionString("Default") ?? string.Empty;
     }
 
-    public async Task<DeliveryDto> GetDeliveryById(int id)
+    public async Task<DeliveryDto> GetDeliveryByIdAsync(int id)
     {
         var query = @"SELECT del.date, c.first_name, c.last_name, c.date_of_birth, 
                             drv.first_name, drv.last_name, drv.licence_number, p.name, p.price, pd.amount
@@ -75,7 +75,7 @@ public class DbService : IDbService
         return delivery;
     }
 
-    public async Task AddDelivery(DeliveryCreateDto delivery)
+    public async Task AddDeliveryAsync(DeliveryCreateDto delivery)
     {
         await using SqlConnection connection = new SqlConnection(_connectionString);
         await using SqlCommand command = new SqlCommand();
