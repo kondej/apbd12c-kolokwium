@@ -21,7 +21,7 @@ namespace kolokwium.Controllers
         {
             try
             {
-                var delivery = await _dbService.GetDeliveryById(id);
+                var delivery = await _dbService.GetDeliveryByIdAsync(id);
                 return Ok(delivery);
             }
             catch (NotFoundException e)
@@ -42,7 +42,7 @@ namespace kolokwium.Controllers
 
             try
             {
-                await _dbService.AddDelivery(delivery);
+                await _dbService.AddDeliveryAsync(delivery);
                 return CreatedAtAction(nameof(GetDeliveryById), new { id = delivery.DeliveryId }, delivery);
             }
             catch (ConflictException e)
