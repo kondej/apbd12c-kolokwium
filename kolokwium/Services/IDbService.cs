@@ -4,6 +4,6 @@ namespace kolokwium.Services;
 
 public interface IDbService
 {
-    Task<DeliveryDto> GetDeliveryById(int id);
-    Task AddDelivery(DeliveryCreateDto delivery);
+    Task<DeliveryDto> GetDeliveryByIdAsync(int id);
+    Task AddDeliveryAsync(DeliveryCreateDto delivery);
 }
